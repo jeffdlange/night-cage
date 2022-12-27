@@ -24,6 +24,9 @@ gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 
+# Bootstrap for base styling [https://github.com/twbs/bootstrap-rubygem]
+gem 'bootstrap', '~> 5.2.1'
+
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
@@ -53,6 +56,8 @@ gem "sassc-rails"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  gem "better_errors", "~> 2.8.3"
 end
 
 group :development do
