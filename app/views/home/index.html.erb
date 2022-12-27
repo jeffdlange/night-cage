@@ -1,11 +1,17 @@
 <div class="container mt-3">
-  <% if params[:starting_tiles] %>
+  <% if @game.started? %>
     <div class="mt-3 mb-5">
       <h2>Game Progress</h2>
 
       <div class="row">
         <div class="col">
-          Info here
+          <%= form_with url: home_path, method: :get do |f| %>
+            <% @game.to_h.each do |key, value| %>
+              <%= f.hidden_field key, name: "game[#{key}]", value: value %>
+            <% end %>
+
+            <%= f.submit 'Try' %>
+          <% end %>
         </div>
       </div>
     </div>
