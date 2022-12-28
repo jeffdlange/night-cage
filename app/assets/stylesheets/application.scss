@@ -12,6 +12,46 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
 
- @import 'bootstrap';
+
+$gold: #d4af37;
+
+@import 'bootstrap';
+
+body {
+  font-family: 'Baskerville';
+  font-size: 1.5rem;
+
+  background-repeat: no-repeat;
+  background-image: url('nightcage_candle');
+  background-size: 60vw;
+  background-position-x: center;
+}
+
+.btn-primary {
+  background: $gold;
+  border-color: darken($gold, 5%);
+
+  &:hover {
+    background: darken($gold, 10%);
+    border-color: darken($gold, 15%);
+  }
+}
+
+.text-primary {
+  color: $gold !important;
+}
+
+.form-control {
+  font-size: 1.5rem;
+}
+
+.text-shadow {
+  text-shadow: 0px 0px 5px #000;
+}
+
+.my-table {
+  background: rgba(0, 0, 0, 0.65);
+  border-color: #373b3e;
+}
