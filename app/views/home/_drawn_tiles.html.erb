@@ -96,7 +96,7 @@
 
         <div class="col-1 text-center">
           <div class="invisible">.</div>
-          <div>or</div>
+          <div class="text-shadow">or</div>
         </div>
 
         <div class="col-3">
@@ -152,9 +152,35 @@
         </div>
       </div>
 
+      <div class="row mt-5">
+        <div class="col-5">
+          <div class="row">
+            <h3 class="text-shadow">LOST</h3>
+            <div class="col">
+              <%= f.label 'Gates', class: 'text-shadow' %>
+              <%= f.number_field :discarded_gate_tiles,
+                    name: 'drawn[discarded_gate_tiles]',
+                    class: 'form-control',
+                    value: @drawn.discarded_gate_tiles || 0,
+                    min: 0
+              %>
+            </div>
+            <div class="col">
+              <%= f.label 'Keys', class: 'text-shadow' %>
+              <%= f.number_field :discarded_key_tiles,
+                    name: 'drawn[discarded_key_tiles]',
+                    class: 'form-control',
+                    value: @drawn.discarded_key_tiles || 0,
+                    min: 0
+              %>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="row mt-3">
         <div class="col">
-          <%= f.submit 'Save', class: 'btn btn-primary btn-lg w-100' %>
+          <%= f.submit 'Record', class: 'btn btn-primary btn-lg w-100' %>
         </div>
       </div>
 

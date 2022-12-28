@@ -19,6 +19,10 @@ $gold: #d4af37;
 
 @import 'bootstrap';
 
+html {
+  background: black;
+}
+
 body {
   font-family: 'Baskerville';
   font-size: 1.5rem;
@@ -27,6 +31,12 @@ body {
   background-image: url('nightcage_candle');
   background-size: 60vw;
   background-position-x: center;
+
+  box-shadow: 22rem 0rem 3rem -1rem black inset,
+    -22rem 0rem 3rem -1rem black inset,
+    0rem -3rem 3rem -1rem black inset,
+    -22rem 0rem 3rem -1rem black inset,
+    0rem 5rem 3rem 2rem black inset;
 }
 
 .btn-primary {
@@ -36,6 +46,11 @@ body {
   &:hover {
     background: darken($gold, 10%);
     border-color: darken($gold, 15%);
+  }
+
+  &:active {
+    background: darken($gold, 10%) !important;
+    border-color: darken($gold, 15%) !important;
   }
 }
 

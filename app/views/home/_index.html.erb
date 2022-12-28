@@ -1,0 +1,14 @@
+<%= turbo_frame_tag :home, data: {turbo_action: :advance} do %>
+  <div class="container mt-3">
+    <% if setup.ready? %>
+
+      <%= render 'drawn_tiles', setup: setup, drawn: drawn %>
+      <%= render 'stats', stats: stats %>
+
+    <% else %>
+
+      <%= render 'setup', setup: setup %>
+
+    <% end %>
+  </div>
+<% end %>

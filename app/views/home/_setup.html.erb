@@ -7,14 +7,16 @@
   <% end %>
 <% end %>
 
-<h2>Game Setup</h2>
+<h1 class="text-shadow">
+  Game Setup
+</h1>
 
 <%= form_with url: home_path, method: :get do |f| %>
   <div class="row">
-    <b>Base Tiles</b>
+    <b class="text-shadow">Path Tiles</b>
 
     <div class="col">
-      <%= f.label 'Starting' %>
+      <%= f.label 'Starting', class: 'text-shadow' %>
       <%= f.number_field :starting_tiles,
             name: 'setup[starting_tiles]',
             class: 'form-control',
@@ -25,7 +27,7 @@
     </div>
 
     <div class="col">
-      <%= f.label 'Gates' %>
+      <%= f.label 'Gates', class: 'text-shadow' %>
       <%= f.number_field :gate_tiles,
             name: 'setup[gate_tiles]',
             class: 'form-control',
@@ -36,7 +38,7 @@
     </div>
 
     <div class="col">
-      <%= f.label 'Straight' %>
+      <%= f.label 'Straight', class: 'text-shadow' %>
       <%= f.number_field :straight_tiles,
             name: 'setup[straight_tiles]',
             class: 'form-control',
@@ -45,7 +47,7 @@
     </div>
 
     <div class="col">
-      <%= f.label 'T-intersection' %>
+      <%= f.label 'T-intersection', class: 'text-shadow' %>
       <%= f.number_field :t_tiles,
             name: 'setup[t_tiles]',
             class: 'form-control',
@@ -54,7 +56,7 @@
     </div>
 
     <div class="col">
-      <%= f.label 'Four-Way' %>
+      <%= f.label 'Four-Way', class: 'text-shadow' %>
       <%= f.number_field :four_way_tiles,
             name: 'setup[four_way_tiles]',
             class: 'form-control',
@@ -66,37 +68,39 @@
   <div class="row mt-3">
     <b>Key Tiles</b>
 
-    <div class="col">
-      <%= f.label 'Keys' %>
+    <div class="col-3">
+      <%= f.label 'Keys', class: 'text-shadow' %>
       <%= f.number_field :key_tiles,
             name: 'setup[key_tiles]',
             class: 'form-control',
             value: @setup.key_tiles || 6,
-            max: 8
+            max: 8,
+            min: 0
       %>
     </div>
 
-    <div class="col text-center">
+    <div class="col-1 text-center">
       <div class="invisible">.</div>
-      <div>or</div>
+      <div class="text-shadow">or</div>
     </div>
 
-    <div class="col">
-      <%= f.label 'Keepers' %>
+    <div class="col-3">
+      <%= f.label 'Keepers', class: 'text-shadow' %>
       <%= f.number_field :keeper_tiles,
             name: 'setup[keeper_tiles]',
             class: 'form-control',
             value: @setup.keeper_tiles || 0,
-            max: 8
+            max: 8,
+            min: 0
       %>
     </div>
   </div>
 
   <div class="row mt-3">
-    <b>Monster Tiles</b>
+    <b class="text-shadow">Monster Tiles</b>
 
     <div class="col">
-      <%= f.label 'Wax Eaters' %>
+      <%= f.label 'Wax Eaters', class: 'text-shadow' %>
       <%= f.number_field :wax_eater_tiles,
             name: 'setup[wax_eater_tiles]',
             class: 'form-control',
@@ -105,7 +109,7 @@
     </div>
 
     <div class="col">
-      <%= f.label 'Pit Fiends' %>
+      <%= f.label 'Pit Fiends', class: 'text-shadow' %>
       <%= f.number_field :pit_fiend_tiles,
             name: 'setup[pit_fiend_tiles]',
             class: 'form-control',
@@ -115,7 +119,7 @@
     </div>
 
     <div class="col">
-      <%= f.label 'Pathless' %>
+      <%= f.label 'Pathless', class: 'text-shadow' %>
       <%= f.number_field :pathless_tiles,
             name: 'setup[pathless_tiles]',
             class: 'form-control',
@@ -125,7 +129,7 @@
     </div>
 
     <div class="col">
-      <%= f.label 'Omens (summon the Dirge)' %>
+      <%= f.label 'Omens', class: 'text-shadow' %>
       <%= f.number_field :omen_tiles,
             name: 'setup[omen_tiles]',
             class: 'form-control',
@@ -137,7 +141,7 @@
 
   <div class="row mt-3">
     <div class="col">
-      <%= f.submit 'Save', class: 'btn btn-primary btn-lg' %>
+      <%= f.submit 'Begin', class: 'btn btn-primary btn-lg' %>
     </div>
   </div>
 <% end %>

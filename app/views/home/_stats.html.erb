@@ -1,4 +1,6 @@
-<h3 class="text-shadow">Stats</h3>
+<h3 class="text-shadow">
+  Stats
+</h3>
 
 <table class="table my-table text-light">
   <thead>
@@ -9,7 +11,7 @@
   <% %w[safe_tiles monster_tiles total_tiles].each do |method| %>
     <tr>
       <td>
-        <b><%= method.titleize %></b>
+        <%= method.titleize %>
       </td>
       <td>
         <%= @stats.send("#{method}_left") %> / <%= @stats.send(method) %>
@@ -22,40 +24,45 @@
 </table>
 
 <table class="table my-table text-light">
+  <thead>
+    <th class="w-25">Odds of drawing...</th>
+    <th></th>
+  </thead>
+
   <tr>
     <td>
-      <b>Odds of drawing a <span class="text-danger">monster</span> tile</b>
+      <b>a <span class="text-danger">monster</span> tile</b>
     </td>
     <td class="text-danger">
-      <%= ((@stats.monster_tiles_left.to_f / @stats.total_tiles.to_f) * 100).round(2) %>%
-    </td>
-  </tr>
-
-  <h3 class="text-shadow">Odds</h3>
-  <tr>
-    <td>
-      <b>Odds of drawing a <span class="text-primary">safe</span> tile</b>
-    </td>
-    <td class="text-primary">
-      <%= ((@stats.safe_tiles_left.to_f / @stats.total_tiles.to_f) * 100).round(2) %>%
+      <%= ((@stats.monster_tiles_left.to_f / @stats.total_tiles_left.to_f) * 100).round(2) %>%
     </td>
   </tr>
 
   <tr>
     <td>
-      <b>Odds of drawing a <span class="text-primary">key / keeper</span> tile</b>
+      <b>a <span class="text-primary">safe</span> tile</b>
     </td>
     <td class="text-primary">
-      <%= ((@stats.key_tiles_left.to_f / @stats.total_tiles.to_f) * 100).round(2) %>%
+      <%= ((@stats.safe_tiles_left.to_f / @stats.total_tiles_left.to_f) * 100).round(2) %>%
     </td>
   </tr>
 
   <tr>
     <td>
-      <b>Odds of drawing a <span class="text-primary">gate</span> tile</b>
+      <b>a <span class="text-primary">key</span> or <span class="text-primary">keeper</span> tile</b>
     </td>
     <td class="text-primary">
-      <%= ((@stats.gate_tiles_left.to_f / @stats.total_tiles.to_f) * 100).round(2) %>%
+      <%= ((@stats.key_tiles_left.to_f / @stats.total_tiles_left.to_f) * 100).round(2) %>%
+    </td>
+    <td></td>
+  </tr>
+
+  <tr>
+    <td>
+      <b>a <span class="text-primary">gate</span> tile</b>
+    </td>
+    <td class="text-primary">
+      <%= ((@stats.gate_tiles_left.to_f / @stats.total_tiles_left.to_f) * 100).round(2) %>%
     </td>
   </tr>
 
