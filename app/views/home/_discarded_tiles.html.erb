@@ -32,10 +32,6 @@
       <% end %>
 
       <div class="row">
-        <div>
-          <b class="text-shadow">Base Tiles</b>
-        </div>
-
         <div class="col">
           <%= f.label 'Starting', class: 'text-shadow' %>
           <%= f.number_field :starting_tiles,
@@ -67,7 +63,7 @@
         </div>
 
         <div class="col">
-          <%= f.label 'T-intersection', class: 'text-shadow' %>
+          <%= f.label 'T-path', class: 'text-shadow' %>
           <%= f.number_field :t_tiles,
                 name: 'discarded[t_tiles]',
                 class: 'form-control',
@@ -88,9 +84,7 @@
       </div>
 
       <div class="row mt-3">
-        <b>Key Tiles</b>
-
-        <div class="col">
+        <div class="col-3">
           <%= f.label 'Keys', class: 'text-shadow' %>
           <%= f.number_field :key_tiles,
                 name: 'discarded[key_tiles]',
@@ -100,12 +94,12 @@
           %>
         </div>
 
-        <div class="col text-center">
+        <div class="col-1 text-center">
           <div class="invisible">.</div>
           <div>or</div>
         </div>
 
-        <div class="col">
+        <div class="col-3">
           <%= f.label 'Keepers', class: 'text-shadow' %>
           <%= f.number_field :keeper_tiles,
                 name: 'discarded[keeper_tiles]',
@@ -117,10 +111,6 @@
       </div>
 
       <div class="row mt-3">
-        <div>
-          <b class="text-shadow">Monster Tiles</b>
-        </div>
-
         <div class="col">
           <%= f.label 'Wax Eaters', class: 'text-shadow' %>
           <%= f.number_field :wax_eater_tiles,
@@ -152,7 +142,7 @@
         </div>
 
         <div class="col">
-          <%= f.label 'Omens (summon the Dirge)', class: 'text-shadow' %>
+          <%= f.label 'Omens', class: 'text-shadow' %>
           <%= f.number_field :omen_tiles,
                 name: 'discarded[omen_tiles]',
                 class: 'form-control',

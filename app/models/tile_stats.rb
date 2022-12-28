@@ -50,6 +50,16 @@ class TileStats
     monster_tiles - discarded_monster_tiles
   end
 
+  def gate_tiles_left
+    @game.gate_tiles - @discarded.gate_tiles
+  end
+
+  def key_tiles_left
+    key_method = @game.key_tiles.positive? ? :key_tiles : :keeper_tiles
+
+    @game.send(key_method) - @discarded.send(key_method)
+  end
+
   def discarded_safe_tiles
     discarded_path_tiles + @discarded.key_tiles + @discarded.gate_tiles
   end

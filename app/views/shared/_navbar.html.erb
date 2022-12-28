@@ -1,13 +1,15 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-black
-            d-flex align-items-center justify-content-center px-2"
+<nav
+  class="navbar sticky-top navbar-expand-lg navbar-dark bg-black
+         d-flex align-items-center justify-content-center px-2 py-3"
+  style="box-shadow: 0px 0px 10px 10px black"
 >
-  <div class="d-flex align-items-center">
-    <%= link_to root_path, class: 'navbar-brand mx-1' do %>
+  <div class="d-flex align-items-center pt-1">
+    <%= link_to root_path do %>
       <div class="d-flex align-items-center">
-        <%# <div class="ms-1 d-none d-lg-block">Night Cage</div> %>
-        <%= image_tag 'night-cage-title', height: '35px', width: '494px' %>
+        <%= image_tag 'the', style: 'max-height: 35px', class: 'me-4' %>
+        <%= image_tag 'night', style: 'max-height: 35px', class: 'mx-4' %>
+        <%= image_tag 'cage', style: 'max-height: 35px', class: 'ms-3' %>
       </div>
     <% end %>
   </div>
-
 </nav>

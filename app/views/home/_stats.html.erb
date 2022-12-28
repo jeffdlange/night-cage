@@ -1,3 +1,4 @@
+<h3 class="text-shadow">Stats</h3>
 
 <table class="table my-table text-light">
   <thead>
@@ -14,7 +15,7 @@
         <%= @stats.send("#{method}_left") %> / <%= @stats.send(method) %>
       </td>
       <td>
-        <%= (@stats.send("#{method}_left").to_f / @stats.send(method).to_f).round(2) * 100 %>%
+        <%= ((@stats.send("#{method}_left").to_f / @stats.send(method).to_f) * 100).round(2) %>%
       </td>
     </tr>
   <% end %>
@@ -26,18 +27,38 @@
       <b>Odds of drawing a <span class="text-danger">monster</span> tile</b>
     </td>
     <td class="text-danger">
-      <%= (@stats.monster_tiles_left.to_f / @stats.total_tiles.to_f).round(2) * 100 %>%
+      <%= ((@stats.monster_tiles_left.to_f / @stats.total_tiles.to_f) * 100).round(2) %>%
     </td>
   </tr>
 
+  <h3 class="text-shadow">Odds</h3>
   <tr>
     <td>
       <b>Odds of drawing a <span class="text-primary">safe</span> tile</b>
     </td>
     <td class="text-primary">
-      <%= (@stats.safe_tiles_left.to_f / @stats.total_tiles.to_f).round(2) * 100 %>%
+      <%= ((@stats.safe_tiles_left.to_f / @stats.total_tiles.to_f) * 100).round(2) %>%
     </td>
   </tr>
+
+  <tr>
+    <td>
+      <b>Odds of drawing a <span class="text-primary">key / keeper</span> tile</b>
+    </td>
+    <td class="text-primary">
+      <%= ((@stats.key_tiles_left.to_f / @stats.total_tiles.to_f) * 100).round(2) %>%
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <b>Odds of drawing a <span class="text-primary">gate</span> tile</b>
+    </td>
+    <td class="text-primary">
+      <%= ((@stats.gate_tiles_left.to_f / @stats.total_tiles.to_f) * 100).round(2) %>%
+    </td>
+  </tr>
+
 </table>
 
 <div class="row my-5">

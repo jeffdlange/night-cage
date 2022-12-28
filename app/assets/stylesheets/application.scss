@@ -45,6 +45,13 @@ body {
 
 .form-control {
   font-size: 1.5rem;
+  background-color: rgba(230, 230, 225, 1);
+
+  &:focus {
+    background-color: rgba(230, 230, 225, 1);
+    border-color: lighten($gold, 10%);
+    box-shadow: 0 0 0 0.25rem lighten($gold, 20%);
+  }
 }
 
 .text-shadow {
