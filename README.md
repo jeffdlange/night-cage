@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Calculate probabilities when drawing tiles for the board game _The Night Cage_.
 
-Things you may want to cover:
+## Screenshots:
 
-* Ruby version
+### Game Setup
+![alt text](https://github.com/jeffdlange/night-cage/blob/main/app/assets/images/demo-3.png?raw=true)
 
-* System dependencies
+### Keep track of drawn tiles
+![alt text](https://github.com/jeffdlange/night-cage/blob/main/app/assets/images/demo-1.png?raw=true)
 
-* Configuration
+### Draw odds based on tiles drawn so far
+![alt text](https://github.com/jeffdlange/night-cage/blob/main/app/assets/images/demo-2.png?raw=true)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Credits:
+_The Night Cage_ was:
+- designed by: Christopher Ryan Chan, Chris McMahon, Rosswell Saunders
+- published by: Smirk & Laughter Games, Banana Games, IELLO
