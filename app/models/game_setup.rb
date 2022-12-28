@@ -47,7 +47,7 @@ class GameSetup
   end
 
   def key_count
-    return unless (key_tiles.positive? && key_tiles < 4) || (keeper_tiles.positive? && keeper_tiles < 4)
+    return if key_tiles >= 4 || keeper_tiles >= 4
 
     @errors << 'You need at least 4 keys/keepers'
   end

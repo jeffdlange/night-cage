@@ -12,7 +12,9 @@ class DrawnTiles
     wax_eater_tiles: 0,
     pit_fiend_tiles: 0,
     pathless_tiles: 0,
-    omen_tiles: 0
+    omen_tiles: 0,
+    discarded_gate_tiles: 0,
+    discarded_key_tiles: 0
   }.freeze
 
   def initialize(setup:, params:)
@@ -36,15 +38,13 @@ class DrawnTiles
   private
 
   def gates_lost?
-    (@setup.gate_tiles - gate_tiles).zero?
+    (@setup.gate_tiles - discarded_gate_tiles).zero?
   end
 
   def keys_lost?
-    if using_keys?
-      (@setup.key_tiles - key_tiles).zero?
-    elsif using_keepers?
-      (@setup.keeper_tiles - keeper_tiles).zero?
-    end
+    key_count = using_keys? ? :key_tiles : :keeper_tiles
+
+    (@setup.send(key_count) - discarded_key_tiles).zero?
   end
 
   def using_keys?
