@@ -1,0 +1,54 @@
+
+<table class="table my-table text-light">
+  <thead>
+    <th>Tile Type</th>
+    <th>Remaining</th>
+    <th>Remaining %</th>
+  </thead>
+  <% %w[safe_tiles monster_tiles total_tiles].each do |method| %>
+    <tr>
+      <td>
+        <b><%= method.titleize %></b>
+      </td>
+      <td>
+        <%= @stats.send("#{method}_left") %> / <%= @stats.send(method) %>
+      </td>
+      <td>
+        <%= (@stats.send("#{method}_left").to_f / @stats.send(method).to_f).round(2) * 100 %>%
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<table class="table my-table text-light">
+  <tr>
+    <td>
+      <b>Odds of drawing a <span class="text-danger">monster</span> tile</b>
+    </td>
+    <td class="text-danger">
+      <%= (@stats.monster_tiles_left.to_f / @stats.total_tiles.to_f).round(2) * 100 %>%
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <b>Odds of drawing a <span class="text-primary">safe</span> tile</b>
+    </td>
+    <td class="text-primary">
+      <%= (@stats.safe_tiles_left.to_f / @stats.total_tiles.to_f).round(2) * 100 %>%
+    </td>
+  </tr>
+</table>
+
+<div class="row my-5">
+  <div class="col">
+    <%= link_to 'Reset Game', root_path,
+          class: 'btn btn-danger btn-lg',
+          data: {
+            turbo_confirm: 'Are you sure? This will reset to a NEW game',
+            turbo_method: :get
+          }
+    %>
+  </div>
+</div>
+
