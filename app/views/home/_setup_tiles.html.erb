@@ -1,5 +1,5 @@
-<% if @game.errors.any? %>
-  <% @game.errors.each do |error| %>
+<% if @setup.errors.any? %>
+  <% @setup.errors.each do |error| %>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
       <div><%= error %></div>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -18,7 +18,7 @@
       <%= f.number_field :starting_tiles,
             name: 'setup[starting_tiles]',
             class: 'form-control',
-            value: @game.starting_tiles || 4,
+            value: @setup.starting_tiles || 4,
             min: 4,
             max: 5
       %>
@@ -29,7 +29,7 @@
       <%= f.number_field :gate_tiles,
             name: 'setup[gate_tiles]',
             class: 'form-control',
-            value: @game.gate_tiles || 4,
+            value: @setup.gate_tiles || 4,
             readonly: true,
             style: "background-color: #e9ecef; opacity: 1;"
       %>
@@ -40,7 +40,7 @@
       <%= f.number_field :straight_tiles,
             name: 'setup[straight_tiles]',
             class: 'form-control',
-            value: @game.straight_tiles || 10
+            value: @setup.straight_tiles || 10
       %>
     </div>
 
@@ -49,7 +49,7 @@
       <%= f.number_field :t_tiles,
             name: 'setup[t_tiles]',
             class: 'form-control',
-            value: @game.t_tiles || 32
+            value: @setup.t_tiles || 32
       %>
     </div>
 
@@ -58,7 +58,7 @@
       <%= f.number_field :four_way_tiles,
             name: 'setup[four_way_tiles]',
             class: 'form-control',
-            value: @game.four_way_tiles || 12
+            value: @setup.four_way_tiles || 12
       %>
     </div>
   </div>
@@ -71,7 +71,7 @@
       <%= f.number_field :key_tiles,
             name: 'setup[key_tiles]',
             class: 'form-control',
-            value: @game.key_tiles || 6,
+            value: @setup.key_tiles || 6,
             max: 8
       %>
     </div>
@@ -86,7 +86,7 @@
       <%= f.number_field :keeper_tiles,
             name: 'setup[keeper_tiles]',
             class: 'form-control',
-            value: @game.keeper_tiles || 0,
+            value: @setup.keeper_tiles || 0,
             max: 8
       %>
     </div>
@@ -100,7 +100,7 @@
       <%= f.number_field :wax_eater_tiles,
             name: 'setup[wax_eater_tiles]',
             class: 'form-control',
-            value: @game.wax_eater_tiles || 13
+            value: @setup.wax_eater_tiles || 13
       %>
     </div>
 
@@ -109,7 +109,7 @@
       <%= f.number_field :pit_fiend_tiles,
             name: 'setup[pit_fiend_tiles]',
             class: 'form-control',
-            value: @game.pit_fiend_tiles || 2,
+            value: @setup.pit_fiend_tiles || 2,
             max: 3
       %>
     </div>
@@ -119,7 +119,7 @@
       <%= f.number_field :pathless_tiles,
             name: 'setup[pathless_tiles]',
             class: 'form-control',
-            value: @game.pathless_tiles || 2,
+            value: @setup.pathless_tiles || 2,
             max: 3
       %>
     </div>
@@ -129,7 +129,7 @@
       <%= f.number_field :omen_tiles,
             name: 'setup[omen_tiles]',
             class: 'form-control',
-            value: @game.omen_tiles || 2,
+            value: @setup.omen_tiles || 2,
             max: 5
       %>
     </div>

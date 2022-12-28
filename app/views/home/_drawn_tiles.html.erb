@@ -1,13 +1,13 @@
 <div class="mt-3 mb-5">
   <h1 class="text-shadow">
-    DISCARDED Tiles (Game Progress)
+    DRAWN Tiles (Game Progress)
   </h1>
 
-  <% if @discarded.gameover? %>
+  <% if @drawn.gameover? %>
 
     <div class="my-4 alert alert-danger text-center">
       <p>
-        Too many <%= @discarded.gameover_reason %> have been lost! Your party is
+        Too many <%= @drawn.gameover_reason %> have been lost! Your party is
         swallowed by the crushing darkness.
       </p>
 
@@ -27,7 +27,7 @@
   <% else %>
 
     <%= form_with url: home_path, method: :get do |f| %>
-      <% @game.to_h.each do |key, value| %>
+      <% @setup.to_h.each do |key, value| %>
         <%= f.hidden_field key, name: "setup[#{key}]", value: value %>
       <% end %>
 
@@ -35,9 +35,9 @@
         <div class="col">
           <%= f.label 'Starting', class: 'text-shadow' %>
           <%= f.number_field :starting_tiles,
-                name: 'discarded[starting_tiles]',
+                name: 'drawn[starting_tiles]',
                 class: 'form-control',
-                value: @discarded.starting_tiles || 0,
+                value: @drawn.starting_tiles || 0,
                 min: 0
           %>
         </div>
@@ -45,9 +45,9 @@
         <div class="col">
           <%= f.label 'Gates', class: 'text-shadow' %>
           <%= f.number_field :gate_tiles,
-                name: 'discarded[gate_tiles]',
+                name: 'drawn[gate_tiles]',
                 class: 'form-control',
-                value: @discarded.gate_tiles || 0,
+                value: @drawn.gate_tiles || 0,
                 min: 0
           %>
         </div>
@@ -55,9 +55,9 @@
         <div class="col">
           <%= f.label 'Straight', class: 'text-shadow' %>
           <%= f.number_field :straight_tiles,
-                name: 'discarded[straight_tiles]',
+                name: 'drawn[straight_tiles]',
                 class: 'form-control',
-                value: @discarded.straight_tiles || 0,
+                value: @drawn.straight_tiles || 0,
                 min: 0
           %>
         </div>
@@ -65,9 +65,9 @@
         <div class="col">
           <%= f.label 'T-path', class: 'text-shadow' %>
           <%= f.number_field :t_tiles,
-                name: 'discarded[t_tiles]',
+                name: 'drawn[t_tiles]',
                 class: 'form-control',
-                value: @discarded.t_tiles || 0,
+                value: @drawn.t_tiles || 0,
                 min: 0
           %>
         </div>
@@ -75,9 +75,9 @@
         <div class="col">
           <%= f.label 'Four-Way', class: 'text-shadow' %>
           <%= f.number_field :four_way_tiles,
-                name: 'discarded[four_way_tiles]',
+                name: 'drawn[four_way_tiles]',
                 class: 'form-control',
-                value: @discarded.four_way_tiles || 0,
+                value: @drawn.four_way_tiles || 0,
                 min: 0
           %>
         </div>
@@ -87,9 +87,9 @@
         <div class="col-3">
           <%= f.label 'Keys', class: 'text-shadow' %>
           <%= f.number_field :key_tiles,
-                name: 'discarded[key_tiles]',
+                name: 'drawn[key_tiles]',
                 class: 'form-control',
-                value: @discarded.key_tiles || 0,
+                value: @drawn.key_tiles || 0,
                 min: 0
           %>
         </div>
@@ -102,9 +102,9 @@
         <div class="col-3">
           <%= f.label 'Keepers', class: 'text-shadow' %>
           <%= f.number_field :keeper_tiles,
-                name: 'discarded[keeper_tiles]',
+                name: 'drawn[keeper_tiles]',
                 class: 'form-control',
-                value: @discarded.keeper_tiles || 0,
+                value: @drawn.keeper_tiles || 0,
                 min: 0
           %>
         </div>
@@ -114,9 +114,9 @@
         <div class="col">
           <%= f.label 'Wax Eaters', class: 'text-shadow' %>
           <%= f.number_field :wax_eater_tiles,
-                name: 'discarded[wax_eater_tiles]',
+                name: 'drawn[wax_eater_tiles]',
                 class: 'form-control',
-                value: @discarded.wax_eater_tiles || 0,
+                value: @drawn.wax_eater_tiles || 0,
                 min: 0
           %>
         </div>
@@ -124,9 +124,9 @@
         <div class="col">
           <%= f.label 'Pit Fiends', class: 'text-shadow' %>
           <%= f.number_field :pit_fiend_tiles,
-                name: 'discarded[pit_fiend_tiles]',
+                name: 'drawn[pit_fiend_tiles]',
                 class: 'form-control',
-                value: @discarded.pit_fiend_tiles || 0,
+                value: @drawn.pit_fiend_tiles || 0,
                 min: 0
           %>
         </div>
@@ -134,9 +134,9 @@
         <div class="col">
           <%= f.label 'Pathless', class: 'text-shadow' %>
           <%= f.number_field :pathless_tiles,
-                name: 'discarded[pathless_tiles]',
+                name: 'drawn[pathless_tiles]',
                 class: 'form-control',
-                value: @discarded.pathless_tiles || 0,
+                value: @drawn.pathless_tiles || 0,
                 min: 0
           %>
         </div>
@@ -144,9 +144,9 @@
         <div class="col">
           <%= f.label 'Omens', class: 'text-shadow' %>
           <%= f.number_field :omen_tiles,
-                name: 'discarded[omen_tiles]',
+                name: 'drawn[omen_tiles]',
                 class: 'form-control',
-                value: @discarded.omen_tiles || 0,
+                value: @drawn.omen_tiles || 0,
                 min: 0
           %>
         </div>

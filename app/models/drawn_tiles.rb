@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class DiscardedTiles
+class DrawnTiles
   DEFAULTS = {
     starting_tiles: 0,
     gate_tiles: 0,
@@ -15,8 +15,8 @@ class DiscardedTiles
     omen_tiles: 0
   }.freeze
 
-  def initialize(game:, params:)
-    @game = game
+  def initialize(setup:, params:)
+    @setup = setup
     @params = params.present? ? params : DEFAULTS
 
     @params.each do |key, value|
@@ -36,22 +36,22 @@ class DiscardedTiles
   private
 
   def gates_lost?
-    (@game.gate_tiles - gate_tiles).zero?
+    (@setup.gate_tiles - gate_tiles).zero?
   end
 
   def keys_lost?
-    if key_game?
-      (@game.key_tiles - key_tiles).zero?
-    elsif keeper_game?
-      (@game.keeper_tiles - keeper_tiles).zero?
+    if using_keys?
+      (@setup.key_tiles - key_tiles).zero?
+    elsif using_keepers?
+      (@setup.keeper_tiles - keeper_tiles).zero?
     end
   end
 
-  def key_game?
-    @game.key_tiles.positive?
+  def using_keys?
+    @setup.key_tiles.positive?
   end
 
-  def keeper_game?
-    @game.keeper_tiles.positive?
+  def using_keepers?
+    @setup.keeper_tiles.positive?
   end
 end

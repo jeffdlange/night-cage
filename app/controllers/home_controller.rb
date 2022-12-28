@@ -2,9 +2,9 @@
 
 class HomeController < ApplicationController
   def index
-    @game = setup_params.present? ? Game.new(setup_params) : BlankGame.new
-    @discarded = DiscardedTiles.new(game: @game, params: discarded_params)
-    @stats = TileStats.new(@game, @discarded)
+    @setup = setup_params.present? ? GameSetup.new(setup_params) : BlankSetup.new
+    @drawn = DrawnTiles.new(setup: @setup, params: drawn_params)
+    @stats = TileStats.new(@setup, @drawn)
   end
 
   private
@@ -13,7 +13,7 @@ class HomeController < ApplicationController
     params[:setup]
   end
 
-  def discarded_params
-    params[:discarded]
+  def drawn_params
+    params[:drawn]
   end
 end

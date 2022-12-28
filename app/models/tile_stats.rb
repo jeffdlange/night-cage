@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class TileStats
-  def initialize(game, discarded)
-    @game = game
-    @discarded = discarded
+  def initialize(setup, drawn)
+    @setup = setup
+    @drawn = drawn
   end
 
   def to_h
@@ -22,55 +22,55 @@ class TileStats
   end
 
   def total_tiles_left
-    total_tiles - (discarded_safe_tiles + discarded_monster_tiles)
+    total_tiles - (drawn_safe_tiles + drawn_monster_tiles)
   end
 
   def safe_tiles
-    path_tiles + @game.key_tiles + @game.gate_tiles
+    path_tiles + @setup.key_tiles + @setup.gate_tiles
   end
 
   def safe_tiles_left
-    safe_tiles - discarded_safe_tiles
+    safe_tiles - drawn_safe_tiles
   end
 
   def path_tiles
-    @game.starting_tiles + @game.straight_tiles + @game.t_tiles + @game.four_way_tiles
+    @setup.starting_tiles + @setup.straight_tiles + @setup.t_tiles + @setup.four_way_tiles
   end
 
   def path_tiles_left
-    path_tiles - discarded_path_tiles
+    path_tiles - drawn_path_tiles
   end
 
   def monster_tiles
-    @game.keeper_tiles + @game.wax_eater_tiles + @game.pit_fiend_tiles +
-      @game.pathless_tiles + @game.omen_tiles
+    @setup.keeper_tiles + @setup.wax_eater_tiles + @setup.pit_fiend_tiles +
+      @setup.pathless_tiles + @setup.omen_tiles
   end
 
   def monster_tiles_left
-    monster_tiles - discarded_monster_tiles
+    monster_tiles - drawn_monster_tiles
   end
 
   def gate_tiles_left
-    @game.gate_tiles - @discarded.gate_tiles
+    @setup.gate_tiles - @drawn.gate_tiles
   end
 
   def key_tiles_left
-    key_method = @game.key_tiles.positive? ? :key_tiles : :keeper_tiles
+    key_method = @setup.key_tiles.positive? ? :key_tiles : :keeper_tiles
 
-    @game.send(key_method) - @discarded.send(key_method)
+    @setup.send(key_method) - @drawn.send(key_method)
   end
 
-  def discarded_safe_tiles
-    discarded_path_tiles + @discarded.key_tiles + @discarded.gate_tiles
+  def drawn_safe_tiles
+    drawn_path_tiles + @drawn.key_tiles + @drawn.gate_tiles
   end
 
-  def discarded_path_tiles
-    @discarded.starting_tiles + @discarded.straight_tiles + @discarded.t_tiles +
-      @discarded.four_way_tiles
+  def drawn_path_tiles
+    @drawn.starting_tiles + @drawn.straight_tiles + @drawn.t_tiles +
+      @drawn.four_way_tiles
   end
 
-  def discarded_monster_tiles
-    @discarded.keeper_tiles + @discarded.wax_eater_tiles +
-      @discarded.pit_fiend_tiles + @discarded.pathless_tiles  + @discarded.omen_tiles
+  def drawn_monster_tiles
+    @drawn.keeper_tiles + @drawn.wax_eater_tiles +
+      @drawn.pit_fiend_tiles + @drawn.pathless_tiles  + @drawn.omen_tiles
   end
 end

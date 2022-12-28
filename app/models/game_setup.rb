@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Game
+class GameSetup
   attr_reader :errors
 
   def initialize(params)
@@ -13,7 +13,7 @@ class Game
     run_validations unless params.blank?
   end
 
-  def started?
+  def ready?
     valid? && starting_tiles.present?
   end
 

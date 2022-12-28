@@ -1,12 +1,12 @@
 <div class="container mt-3">
-  <% if @game.started? %>
+  <% if @setup.ready? %>
 
-    <%= render 'discarded_tiles' %>
+    <%= render 'drawn_tiles' %>
     <%= render 'stats' %>
 
   <% else %>
 
-    <%= render 'game_tiles' %>
+    <%= render 'setup_tiles' %>
 
   <% end %>
 </div>

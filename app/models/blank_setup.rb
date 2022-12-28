@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class BlankGame
+class BlankSetup
   attr_reader :errors
 
   def initialize
@@ -24,7 +24,7 @@ class BlankGame
     @errors = []
   end
 
-  def started?
+  def ready?
     false
   end
 end
